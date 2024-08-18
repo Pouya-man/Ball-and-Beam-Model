@@ -18,6 +18,8 @@ if (Setpoint1>40){
 if (Setpoint1<0){
   Setpoint1=0;
 }
+
+//The input value to the controller______________________________________________
 Input = readPosition()-Setpoint;
 myPID.Compute();
 Setpoint=Setpoint1;
