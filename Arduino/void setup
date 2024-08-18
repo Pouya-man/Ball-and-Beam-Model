@@ -1,0 +1,23 @@
+#include<Servo.h>
+#include<PID_v1.h>
+#include <TM1637Display.h>
+
+int VRy=A1;
+const int SW=3;
+int x= 0;
+int y= 0;
+int mapY = 0;
+int SW_state;
+const int CLK = 4; //Set the CLK 
+const int DIO = 5; //Set the DIO 
+TM1637Display display(CLK, DIO); //moarefi paye ha.
+const int servoPin = 12;
+int pingPin =7;
+int EchoPin =6;
+float Kp = 4.30437898; 
+float Ki =0.62262774992;
+float Kd =7.4393; 
+double Setpoint=0;
+double Setpoint1=0;
+double  Input, Output, ServoOutput;
+PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
