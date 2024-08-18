@@ -1,0 +1,14 @@
+void setup(){
+   Serial.begin(9600);
+  pinMode(VRy, INPUT);
+  pinMode(SW, INPUT_PULLUP);
+  display.setBrightness(7); //set kardan mizan roshanaii
+  pinMode(pingPin, OUTPUT);
+  pinMode(EchoPin, INPUT);
+myServo.attach(servoPin);
+Input = readPosition();
+myPID.SetMode(AUTOMATIC); 
+myPID.SetOutputLimits(-20,20);
+myServo.write(0);
+delay(1000); 
+}
