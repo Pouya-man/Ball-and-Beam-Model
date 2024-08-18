@@ -1,0 +1,34 @@
+void loop()}
+  y= analogRead(VRy);
+  int SW_state = 1;
+  SW_state = digitalRead(SW);
+  mapY = map(y, 0, 1023,-100, 100);
+if(SW_state==0){
+Setpoint1=20;
+}
+if(mapY>50){
+Setpoint1=Setpoint1+1;
+}
+if(mapY<-50){
+Setpoint1=Setpoint1-1 ;
+}
+if (Setpoint1>40){
+  Setpoint1=40;
+}
+if (Setpoint1<0){
+  Setpoint1=0;
+}
+Input = readPosition()-Setpoint;
+myPID.Compute();
+Setpoint=Setpoint1;
+ServoOutput=100+Output;
+if (Input==40){
+  myServo.write(120);
+}
+else if (Input>30){
+  myServo.write(30);
+}
+else{
+  myServo.write(ServoOutput);
+}
+}
